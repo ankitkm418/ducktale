@@ -1,0 +1,70 @@
+<!-- main app container -->
+<div class="card m-3">
+    <h5 class="card-header">Angular 8 Reactive Form Validation</h5>
+    <div class="card-body">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-row">
+                <div class="form-group col">
+                    <label>Title</label>
+                    <select formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+                        <option value=""></option>
+                        <option value="Mr">Mr</option>
+                        <option value="Mrs">Mrs</option>
+                        <option value="Miss">Miss</option>
+                        <option value="Ms">Ms</option>
+                    </select>
+                    <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+                        <div *ngIf="f.title.errors.required">Title is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-5">
+                    <label>First Name</label>
+                    <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                        <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                    </div>
+                </div>
+                <div class="form-group col-5">
+                    <label>Last Name</label>
+                    <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                    <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                        <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Class</label>
+                <input type="text" formControlName="class" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.class.errors }" />
+                <div *ngIf="submitted && f.class.errors" class="invalid-feedback">
+                    <div *ngIf="f.class.errors.required">Class is required</div>
+                </div>
+            </div>
+            
+
+
+<div class="form-group col-5">
+    <label>Subject</label>
+    <input type="text" formControlName="subject" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.subject.errors }" />
+    <div *ngIf="submitted && f.subject.errors" class="invalid-feedback">
+        <div *ngIf="f.subject.errors.required">Subject is required</div>
+    </div>
+</div>
+
+<div class="form-group col-5">
+    <label>Marks</label>
+    <input type="text" formControlName="marks" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.marks.errors }" />
+    <div *ngIf="submitted && f.marks.errors" class="invalid-feedback">
+        <div *ngIf="f.marks.errors.required">Marks is required</div>
+    </div>
+</div>
+
+                
+            <div class="text-center">
+                <button class="btn btn-primary mr-1">Register</button>
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- credits -->
